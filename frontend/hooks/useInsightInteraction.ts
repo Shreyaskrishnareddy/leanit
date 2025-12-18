@@ -38,7 +38,7 @@ export function useInsightInteraction(
   }, [allInsights, skippedIds]);
 
   const skipInsight = useCallback((id: string) => {
-    setSkippedIds((prev) => new Set([...prev, id]));
+    setSkippedIds((prev) => new Set([...Array.from(prev), id]));
     setLastSkippedId(id);
     // Close expanded view if skipping the expanded insight
     setExpandedId((current) => (current === id ? null : current));
