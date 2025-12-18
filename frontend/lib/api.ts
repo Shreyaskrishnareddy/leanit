@@ -1,6 +1,7 @@
 import type { AnalysisResponse, ErrorResponse, AnalyzeRequest } from '@/types';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// Use relative URL when served from same origin (production), or env var for local dev
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 /**
  * Custom error class for API errors

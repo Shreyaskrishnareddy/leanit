@@ -14,10 +14,21 @@ Extract key insights from YouTube videos using AI. Swipe through insights Tinder
 - **Backend**: FastAPI + Groq (LLaMA 3.3 70B)
 - **Frontend**: Next.js 14 + Tailwind CSS + Framer Motion
 
-## Quick Start
+## Deploy to Render (Single Service)
+
+1. Fork this repo
+2. Go to [Render](https://render.com) → **New → Web Service**
+3. Connect your repo
+4. Configure:
+   - **Build Command**: `chmod +x build.sh && ./build.sh`
+   - **Start Command**: `cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+5. Add Environment Variable:
+   - `GROQ_API_KEY` = your Groq API key
+6. Deploy!
+
+## Local Development
 
 ### Backend
-
 ```bash
 cd backend
 python -m venv .venv
@@ -29,28 +40,17 @@ uvicorn app.main:app --reload
 ```
 
 ### Frontend
-
 ```bash
 cd frontend
 npm install
-cp .env.example .env
 npm run dev
 ```
 
-Visit http://localhost:3000
+Visit http://localhost:3000 (frontend) or http://localhost:8000 (API)
 
 ## Environment Variables
 
-### Backend (.env)
 - `GROQ_API_KEY` - Your Groq API key (get from https://console.groq.com)
-
-### Frontend (.env)
-- `NEXT_PUBLIC_API_URL` - Backend API URL (default: http://localhost:8000)
-
-## Deployment
-
-- **Frontend**: Deploy to Vercel
-- **Backend**: Deploy to Render
 
 ## License
 
